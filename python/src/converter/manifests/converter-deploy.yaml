@@ -1,35 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gateway
+  name: converter
   labels:
-    app: gateway
-
+    app: converter
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
-      app: gateway
+      app: converter
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxSurge: 3
+      maxSurge: 8
   template:
     metadata:
       labels:
-        app: gateway
+        app: converter
     spec:
       hostAliases:
       - ip: 192.168.49.1
         hostnames:
         - "host.minikube.internal"
       containers:
-        - name: gateway
-          image: jakeinrock/gateway
-          ports:
-            - containerPort: 8080
+        - name: converter
+          image: jakeinrock/converter
           envFrom:
             - configMapRef:
-                name: gateway-configmap
+                name: converter-configmap
             - secretRef:
-                name: gateway-secret
+                name: converter-secret
