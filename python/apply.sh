@@ -12,3 +12,4 @@ do
 done
 
 minikube addons enable ingress
+sudo -- sh -c "echo 127.0.0.1       mp3converter.com >> /etc/hosts"
