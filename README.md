@@ -1,6 +1,6 @@
 # Optimization of Kubernetes resources for movie files processing
 
-Project was prepared for Large Scale Computing classes ond AGH University of Science and Technology.
+Project was prepared for Large Scale Computing classes on AGH University of Science and Technology.
 
 ## Introduction
 In this project a simple REST API application created with microservices architecture was proposed. It provides the ability for users to convert a video file into mp3 file. Services are contenerized with use of
@@ -21,7 +21,9 @@ is available here: [Optimization of kubernetes resources for movie files process
 ![Architecture](./docs-res/architecture.png)
 
 
-**Technology stack used to create a project:**
+**Technology stack:**
+
+The project was prepared on WSL Ubuntu.
 
 * **Development**
 
