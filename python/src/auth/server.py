@@ -15,6 +15,10 @@ server.config["MYSQL_PORT"] = int(os.environ.get("MYSQL_PORT"))
 
 @server.route('/login', methods=["POST"])
 def login():
+    """Internal endpoint available only for gateway service.
+    - compares received credentials with those stored in db,
+    - returns JWT token or an error.
+    """
     auth = request.authorization
     if not auth:
         return ("Missing credentials", 401)
@@ -40,6 +44,9 @@ def login():
 
 @server.route('/validate', methods=["POST"])
 def validate():
+    """Internal endpoint available only for gateway service.
+    Checks if the token provided by user is valid.
+    """
     encoded_jwt = request.headers["Authorization"]
 
     if not encoded_jwt:

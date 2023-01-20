@@ -4,6 +4,9 @@ import moviepy.editor
 
 
 def start(message, fs_videos, fs_mp3s, channel):
+    """Converting video file to mp3 format.
+    When process is finished successfully, sends message with fileID to the mp3 queue.
+    """
     message = json.loads(message)
 
     # empty temp file
@@ -38,6 +41,6 @@ def start(message, fs_videos, fs_mp3s, channel):
                 delivery_mode=pika.spec.PERSISTENT_DELIVERY_MODE
             ),
         )
-    except Exception as err:
+    except Exception:
         fs_mp3s.delete(fid)
         return "Failed to publish message"
