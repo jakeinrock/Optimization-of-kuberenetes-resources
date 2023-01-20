@@ -1,6 +1,7 @@
 import os, requests
 
 def login(request):
+    """Sending request to auth service internal endpoint /login."""
     auth = request.authorization
     if not auth:
         return(None, ("Missing credentials", 401))

@@ -1,6 +1,9 @@
 import pika, json
 
 def upload(f, fs, channel, access):
+    """Upoading movie fle to the storage db.
+    When process is finished successfully, sends message with fileID to the video queue.
+    """
     try:
         fid = fs.put(f)
     except Exception as err:

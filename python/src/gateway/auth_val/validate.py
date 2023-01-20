@@ -1,6 +1,7 @@
 import os, requests
 
 def token(request):
+    """Sending request to auth service internal endpoint /validate"""
     if not "Authorization" in request.headers:
         return(None, ("Missing credentials", 401))
 

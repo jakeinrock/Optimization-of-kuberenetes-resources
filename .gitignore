@@ -128,7 +128,3 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# k8s secret manifest
-python/src/auth/manifests/secret.yaml
-python/src/gateway/manifests/secret.yaml
-python/src/rabbitmq/manifests/secret.yaml
